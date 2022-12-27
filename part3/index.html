@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>대출이자 계산기</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/main.html">노마드코작의 헬로월드</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/main.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/part2/index.html">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/part3/index.html">Loan Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/part4/index.html">Diary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/part5/index.html">Stocks Portfolio</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>대출이자 계산기</h1>
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">대출금</th>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="loan">
+                            <span class="input-group-text">원</span> 
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-primary" id="loan-100">+1백만</button>
+                            <button type="button" class="btn btn-outline-primary" id="loan-1000">+1천만</button>
+                            <button type="button" class="btn btn-outline-primary" id="loan-10000">+1억</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">대출금리</th>
+                    <td>
+                        <div class="input-group">
+                            <span class="input-group-text">연</span>
+                            <input type="text" class="form-control" id="interest">
+                            <span class="input-group-text">%</span> 
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary" id="interest-3">3%</button>
+                            <button type="button" class="btn btn-outline-primary" id="interest-4">4%</button>
+                            <button type="button" class="btn btn-outline-primary" id="interest-5">5%</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">대출기간</th>
+                    <td>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="period">
+                            <span class="input-group-text">개월</span> 
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary" id="period-1">1년</button>
+                            <button type="button" class="btn btn-outline-primary" id="period-3">3년</button>
+                            <button type="button" class="btn btn-outline-primary" id="period-5">5년</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-primary" id="calculate">계산하기</button>
+
+        <div id="result"></div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
