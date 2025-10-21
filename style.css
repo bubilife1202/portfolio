@@ -728,3 +728,515 @@ body.dark-mode .footer {
 * {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+/* ============================================
+   Blog Section
+   ============================================ */
+.blog-section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px;
+  border-radius: 20px;
+  padding: 80px 0;
+}
+
+body.dark-mode .blog-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+.blog-card {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.blog-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.blog-category {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-category.tech {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.blog-category.travel {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+.blog-category.life {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+}
+
+.blog-card h3 {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.blog-excerpt {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 20px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  padding-top: 15px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .blog-meta {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.blog-meta i {
+  margin-right: 5px;
+}
+
+/* ============================================
+   Travel Map Section
+   ============================================ */
+.travel-map-section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px;
+  border-radius: 20px;
+  padding: 80px 0;
+}
+
+body.dark-mode .travel-map-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+.map-container {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: var(--shadow-md);
+}
+
+.world-map {
+  width: 100%;
+  position: relative;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.city-marker {
+  fill: var(--primary-color);
+  cursor: pointer;
+  transition: var(--transition);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.city-marker:hover {
+  fill: var(--secondary-color);
+  r: 10;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.city-label {
+  font-size: 12px;
+  fill: var(--text-color);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.travel-stat-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.travel-stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.travel-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.travel-stat-card h3 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.travel-stat-card p {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* City Stories */
+.city-story-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.city-story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+}
+
+.city-story-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.city-flag {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.city-story-card h4 {
+  color: var(--text-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.city-story-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.story-tags {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story-tags .badge {
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+/* ============================================
+   CV Styles
+   ============================================ */
+.cv-download-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cv-container {
+  padding: 20px;
+}
+
+.cv-header {
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 20px;
+}
+
+.cv-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.cv-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.cv-contact {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.cv-contact i {
+  margin: 0 5px;
+}
+
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.cv-subsection {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-project {
+  margin-bottom: 1.5rem;
+}
+
+.cv-project h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.3rem;
+}
+
+.cv-project p {
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.cv-section ul {
+  margin-left: 20px;
+  color: var(--text-light);
+}
+
+.cv-section li {
+  margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   Project Tech Badges & Links
+   ============================================ */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.project-links .btn {
+  flex: 1;
+}
+
+.project-links .btn-outline-secondary {
+  flex: 0;
+  padding: 0.375rem 0.75rem;
+}
+
+.project-links .btn-outline-secondary:hover {
+  background-color: #333;
+  border-color: #333;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* ============================================
+   Scroll Animations
+   ============================================ */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced hover effects */
+.project-card,
+.blog-card,
+.city-story-card,
+.travel-stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::after,
+.blog-card::after,
+.city-story-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.project-card:hover::after,
+.blog-card:hover::after,
+.city-story-card:hover::after {
+  width: 500px;
+  height: 500px;
+}
+
+/* Button hover effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* City marker pulse animation */
+.city-marker {
+  animation: markerPulse 2s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Navbar scroll effect */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(33, 37, 41, 1) !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading animation for images */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Smooth transitions for dark mode */
+body,
+section,
+.navbar,
+.project-card,
+.blog-card,
+.city-story-card,
+.travel-stat-card {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
