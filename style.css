@@ -402,6 +402,17 @@ body.dark-mode .projects-section h2 {
   color: var(--text-color);
 }
 
+.projects-section h3 {
+  color: white;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .projects-section h3 {
+  color: var(--text-color);
+}
+
 /* Project Cards */
 .project-card {
   background: white;
@@ -410,6 +421,8 @@ body.dark-mode .projects-section h2 {
   height: 100%;
   transition: var(--transition);
   box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
 }
 
 body.dark-mode .project-card {
@@ -421,9 +434,59 @@ body.dark-mode .project-card {
   box-shadow: var(--shadow-lg);
 }
 
+/* Featured Projects */
+.project-card.featured {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.98) 100%);
+  border: 2px solid var(--primary-color);
+  padding: 35px;
+}
+
+body.dark-mode .project-card.featured {
+  background: linear-gradient(135deg, var(--white) 0%, rgba(22, 33, 62, 0.98) 100%);
+}
+
+.project-card.featured:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.project-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-tags .tag {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 .project-icon {
   font-size: 3rem;
   margin-bottom: 20px;
+}
+
+.project-card.featured .project-icon {
+  font-size: 4rem;
 }
 
 .project-card h3 {
@@ -450,6 +513,16 @@ body.dark-mode .project-card {
   background: var(--primary-color);
   color: white;
   border-color: var(--primary-color);
+}
+
+.project-card.featured .btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border: none;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.project-card.featured .btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
 /* ============================================

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Analyzer - 노마드코작</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/portfolio/index.html">
+                <i class="bi bi-pen"></i> Writing Analyzer
+            </a>
+            <a href="/portfolio/index.html" class="btn btn-outline-light btn-sm">
+                <i class="bi bi-house"></i> Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">
+                <i class="bi bi-pencil-square"></i> Writing Analyzer
+            </h1>
+            <p class="lead mb-4">코딩하는 작가를 위한 글쓰기 분석 도구</p>
+            <p class="text-muted">글의 통계, 가독성, 키워드를 분석하여 더 나은 글쓰기를 도와드립니다</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="analyzer-section">
+        <div class="container">
+            <div class="row">
+                <!-- Text Input Section -->
+                <div class="col-lg-7 mb-4">
+                    <div class="editor-card">
+                        <div class="card-header">
+                            <h3><i class="bi bi-file-text"></i> 글 작성</h3>
+                            <div class="header-actions">
+                                <button class="btn btn-sm btn-outline-secondary" onclick="clearText()">
+                                    <i class="bi bi-trash"></i> 지우기
+                                </button>
+                                <button class="btn btn-sm btn-outline-primary" onclick="loadSample()">
+                                    <i class="bi bi-file-earmark-text"></i> 샘플
+                                </button>
+                            </div>
+                        </div>
+                        <textarea
+                            id="textInput"
+                            class="form-control editor-textarea"
+                            placeholder="분석할 글을 입력하세요...
+
+코딩하는 작가로서, 저는 코드와 글쓰기가 많이 닮아있다고 생각합니다.
+좋은 코드는 읽기 쉽고, 명확하며, 목적이 분명합니다.
+글쓰기도 마찬가지입니다.
+
+여기에 분석하고 싶은 글을 입력해보세요!"
+                        ></textarea>
+
+                        <!-- Quick Stats -->
+                        <div class="quick-stats">
+                            <div class="stat-badge">
+                                <i class="bi bi-fonts"></i>
+                                <span id="liveChars">0</span> 글자
+                            </div>
+                            <div class="stat-badge">
+                                <i class="bi bi-blockquote-left"></i>
+                                <span id="liveWords">0</span> 단어
+                            </div>
+                            <div class="stat-badge">
+                                <i class="bi bi-clock"></i>
+                                <span id="liveReadTime">0</span>분 읽기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Results Section -->
+                <div class="col-lg-5 mb-4">
+                    <div class="results-card">
+                        <div class="card-header">
+                            <h3><i class="bi bi-graph-up"></i> 분석 결과</h3>
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="analysis-section">
+                            <h4><i class="bi bi-bar-chart-fill"></i> 통계</h4>
+                            <div class="stat-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">총 글자 수</div>
+                                    <div class="stat-value" id="totalChars">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">공백 제외</div>
+                                    <div class="stat-value" id="charsNoSpace">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">단어 수</div>
+                                    <div class="stat-value" id="wordCount">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">문장 수</div>
+                                    <div class="stat-value" id="sentenceCount">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">문단 수</div>
+                                    <div class="stat-value" id="paragraphCount">0</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">평균 문장 길이</div>
+                                    <div class="stat-value" id="avgSentence">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reading Time -->
+                        <div class="analysis-section">
+                            <h4><i class="bi bi-stopwatch"></i> 읽기 시간</h4>
+                            <div class="reading-time-card">
+                                <div class="reading-time-main">
+                                    <span class="reading-time-value" id="readingTime">0</span>
+                                    <span class="reading-time-unit">분</span>
+                                </div>
+                                <div class="reading-time-details">
+                                    <small>평균 읽기 속도: 200자/분 기준</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Character Analysis -->
+                        <div class="analysis-section">
+                            <h4><i class="bi bi-alphabet"></i> 문자 분석</h4>
+                            <div class="char-breakdown">
+                                <div class="char-item">
+                                    <span>한글</span>
+                                    <span class="char-count" id="koreanCount">0</span>
+                                </div>
+                                <div class="char-item">
+                                    <span>영문</span>
+                                    <span class="char-count" id="englishCount">0</span>
+                                </div>
+                                <div class="char-item">
+                                    <span>숫자</span>
+                                    <span class="char-count" id="numberCount">0</span>
+                                </div>
+                                <div class="char-item">
+                                    <span>특수문자</span>
+                                    <span class="char-count" id="specialCount">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keywords and Advanced Analysis -->
+            <div class="row mt-4">
+                <!-- Keywords -->
+                <div class="col-lg-6 mb-4">
+                    <div class="keywords-card">
+                        <div class="card-header">
+                            <h3><i class="bi bi-tags"></i> 주요 키워드</h3>
+                        </div>
+                        <div class="keywords-content" id="keywords">
+                            <p class="text-muted text-center py-4">글을 입력하면 주요 키워드를 추출합니다</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Readability -->
+                <div class="col-lg-6 mb-4">
+                    <div class="readability-card">
+                        <div class="card-header">
+                            <h3><i class="bi bi-book"></i> 가독성 분석</h3>
+                        </div>
+                        <div class="readability-content">
+                            <div class="readability-score">
+                                <div class="score-circle">
+                                    <div class="score-value" id="readabilityScore">0</div>
+                                    <div class="score-label">점</div>
+                                </div>
+                                <div class="score-description" id="readabilityDesc">
+                                    글을 입력하세요
+                                </div>
+                            </div>
+                            <div class="readability-tips mt-3">
+                                <h5>가독성 팁</h5>
+                                <ul id="readabilityTips">
+                                    <li>짧고 명확한 문장을 사용하세요</li>
+                                    <li>한 문단에 하나의 주제를 담으세요</li>
+                                    <li>적절한 문단 나누기를 활용하세요</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="export-card">
+                        <h4><i class="bi bi-download"></i> 내보내기</h4>
+                        <div class="export-buttons">
+                            <button class="btn btn-primary" onclick="exportAsText()">
+                                <i class="bi bi-file-earmark-text"></i> 텍스트로 저장
+                            </button>
+                            <button class="btn btn-success" onclick="copyToClipboard()">
+                                <i class="bi bi-clipboard"></i> 클립보드에 복사
+                            </button>
+                            <button class="btn btn-info" onclick="exportReport()">
+                                <i class="bi bi-file-earmark-bar-graph"></i> 분석 보고서
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 노마드코작. Writing Analyzer</p>
+            <p class="small text-muted">코딩하는 작가를 위한 글쓰기 분석 도구</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

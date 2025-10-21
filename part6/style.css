@@ -1,0 +1,435 @@
+/* ============================================
+   Global Styles
+   ============================================ */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --dark-bg: #1a1a2e;
+    --light-bg: #f8f9fa;
+    --text-dark: #333;
+    --text-light: #666;
+    --border-radius: 15px;
+    --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding-top: 70px;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+    backdrop-filter: blur(10px);
+    background-color: rgba(26, 26, 46, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.navbar-brand i {
+    color: var(--primary-color);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.hero-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 60px 20px;
+    margin: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease;
+}
+
+.hero-section h1 {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.hero-section i {
+    color: var(--secondary-color);
+}
+
+/* ============================================
+   Sections
+   ============================================ */
+.world-clocks-section,
+.converter-section,
+.meeting-section {
+    margin: 30px 0;
+}
+
+.section-title {
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+
+.section-title i {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================================
+   Clock Cards
+   ============================================ */
+.clock-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.clock-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.clock-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.clock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.city-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.city-flag {
+    font-size: 1.8rem;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.clock-card:hover .remove-btn {
+    opacity: 1;
+}
+
+.remove-btn:hover {
+    color: #c82333;
+}
+
+.current-time {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 10px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.current-date {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.timezone-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.timezone-offset {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.time-status {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.status-morning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-afternoon {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-evening {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-night {
+    background: #d6d8db;
+    color: #383d41;
+}
+
+/* ============================================
+   Converter Card
+   ============================================ */
+.converter-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.result-display {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.time-difference {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 15px 30px;
+    border-radius: 25px;
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   Meeting Card
+   ============================================ */
+.meeting-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.meeting-times {
+    margin-top: 20px;
+}
+
+.meeting-time-item {
+    background: var(--light-bg);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.meeting-time-item:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(5px);
+}
+
+.meeting-city {
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.meeting-time {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-family: 'Courier New', monospace;
+}
+
+.meeting-warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+}
+
+.meeting-warning .meeting-city::after {
+    content: ' ⚠️';
+}
+
+/* ============================================
+   Form Elements
+   ============================================ */
+.form-select,
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e0e0e0;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus,
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.form-label {
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================
+   Modal
+   ============================================ */
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.footer {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 20px;
+        margin: 10px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .converter-card,
+    .meeting-card {
+        padding: 20px;
+    }
+
+    .current-time {
+        font-size: 2rem;
+    }
+
+    .result-display {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+
+    .meeting-time-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-fade-in {
+    animation: fadeIn 0.5s ease;
+}
