@@ -1,36 +1,391 @@
-/* Show it is fixed to the top */
+/* ============================================
+   Global Styles
+   ============================================ */
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333;
+  --text-light: #666;
+  --bg-light: #f8f9fa;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --primary-color: #7c8ff0;
+  --secondary-color: #8b5cb5;
+  --text-color: #e0e0e0;
+  --text-light: #b0b0b0;
+  --bg-light: #1a1a2e;
+  --white: #16213e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
   padding-top: 4.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  transition: var(--transition);
 }
 
-/* Hero Section */
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 60px 0;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.navbar {
+  backdrop-filter: blur(10px);
+  background-color: rgba(33, 37, 41, 0.95) !important;
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  transition: var(--transition);
+}
+
+.navbar-brand:hover {
+  color: var(--primary-color) !important;
+}
+
+#darkModeToggle {
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+#darkModeToggle:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
 .hero-section {
-  padding: 80px 0;
+  padding: 100px 0;
   background: rgba(255, 255, 255, 0.95);
   margin: 20px;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .hero-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+/* World Clock */
+.world-clock {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 500;
+  animation: fadeInDown 1s ease;
+}
+
+.world-clock i {
+  margin-right: 5px;
+}
+
+/* Typing Effect */
+.typing-container {
+  min-height: 80px;
+  color: var(--primary-color);
+}
+
+.typing-cursor {
+  animation: blink 1s infinite;
+  font-weight: 300;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
 
 .hero-section h1 {
-  color: #667eea;
+  color: var(--text-color);
   animation: fadeInUp 1s ease;
 }
 
-.hero-section h2 {
-  color: #333;
-  animation: fadeInUp 1.2s ease;
-}
-
-.hero-section p {
-  color: #666;
+.hero-section .lead {
+  color: var(--text-light);
   animation: fadeInUp 1.4s ease;
 }
 
-/* Projects Section */
+.hero-buttons {
+  animation: fadeInUp 1.6s ease;
+}
+
+.hero-buttons .btn {
+  margin: 5px;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.hero-buttons .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Hero Stats */
+.hero-stats {
+  animation: fadeInUp 1.8s ease;
+}
+
+.stat-item {
+  padding: 20px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 15px;
+  transition: var(--transition);
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(102, 126, 234, 0.2);
+}
+
+.stat-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.stat-item h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: 10px 0 5px 0;
+}
+
+.stat-item p {
+  color: var(--text-light);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   About Section
+   ============================================ */
+.about-section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .about-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+.about-section h2 {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.about-content {
+  padding: 20px;
+}
+
+.about-text {
+  line-height: 1.8;
+}
+
+.about-text h3 {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.about-text .bi-check-circle-fill {
+  margin-right: 10px;
+}
+
+/* Timeline */
+.journey-timeline {
+  margin-top: 40px;
+}
+
+.journey-timeline h4 {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 50px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  animation: fadeInLeft 1s ease;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -42px;
+  width: 35px;
+  height: 35px;
+  background: white;
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+body.dark-mode .timeline-icon {
+  background: var(--bg-light);
+}
+
+.timeline-content h5 {
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.timeline-content p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ============================================
+   Skills Section
+   ============================================ */
+.skills-section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .skills-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+.skills-section h2 {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.skill-category h3 {
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.skill-category i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.skill-item {
+  margin-bottom: 25px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.skill-percentage {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.skill-bar {
+  height: 10px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 10px;
+  width: 0;
+  transition: width 1.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.skill-progress.animate {
+  width: var(--progress-width);
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tool-item {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--primary-color);
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.tool-item:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Projects Section
+   ============================================ */
 .projects-section {
   padding: 60px 0;
 }
@@ -43,19 +398,27 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+body.dark-mode .projects-section h2 {
+  color: var(--text-color);
+}
+
 /* Project Cards */
 .project-card {
   background: white;
   border-radius: 15px;
   padding: 30px;
   height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .project-card {
+  background: var(--white);
 }
 
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
 }
 
 .project-icon {
@@ -64,13 +427,13 @@ body {
 }
 
 .project-card h3 {
-  color: #667eea;
+  color: var(--primary-color);
   font-weight: bold;
   margin-bottom: 15px;
 }
 
 .project-card p {
-  color: #666;
+  color: var(--text-light);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -79,17 +442,102 @@ body {
   border-radius: 25px;
   padding: 10px 30px;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .project-card .btn:hover {
   transform: scale(1.05);
-  background: #667eea;
+  background: var(--primary-color);
   color: white;
-  border-color: #667eea;
+  border-color: var(--primary-color);
 }
 
-/* Footer */
+/* ============================================
+   Contact Section
+   ============================================ */
+.contact-section {
+  background: rgba(255, 255, 255, 0.95);
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+body.dark-mode .contact-section {
+  background: rgba(22, 33, 62, 0.95);
+}
+
+.contact-section h2 {
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.contact-content .lead {
+  color: var(--text-light);
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: var(--shadow-md);
+  color: white;
+}
+
+/* Contact Info */
+.info-card {
+  background: rgba(102, 126, 234, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  background: rgba(102, 126, 234, 0.15);
+}
+
+.info-card i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.info-card h4 {
+  color: var(--text-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
 .footer {
   background: rgba(255, 255, 255, 0.1);
   color: white;
@@ -98,28 +546,22 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+body.dark-mode .footer {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+}
+
 .footer p {
-  margin: 0;
-  font-size: 0.9rem;
+  margin: 5px 0;
 }
 
-/* Navbar Enhancement */
-.navbar-dark .navbar-brand {
-  font-weight: bold;
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
+.footer .small {
+  opacity: 0.8;
 }
 
-.navbar-dark .navbar-brand:hover {
-  color: #667eea !important;
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Animations */
+/* ============================================
+   Animations
+   ============================================ */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -131,7 +573,31 @@ html {
   }
 }
 
-/* Responsive Design */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
 @media (max-width: 768px) {
   .hero-section {
     padding: 50px 0;
@@ -146,7 +612,46 @@ html {
     font-size: 1.5rem;
   }
 
-  .projects-section h2 {
-    font-size: 2rem;
+  .about-section,
+  .skills-section,
+  .contact-section {
+    margin: 10px;
+    padding: 40px 0;
   }
+
+  section h2 {
+    font-size: 2rem !important;
+  }
+
+  .stat-item h3 {
+    font-size: 1.5rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .social-link {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .timeline {
+    padding-left: 40px;
+  }
+
+  .timeline-icon {
+    left: -35px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   Smooth Transitions
+   ============================================ */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
