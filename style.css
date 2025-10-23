@@ -77,22 +77,60 @@ main.container {
   animation: fadeInUp 0.8s ease-out;
 }
 
+/* 소셜 미디어 섹션 */
+.social-section {
+  animation: fadeInUp 0.7s ease-out;
+}
+
 /* 인스타그램 버튼 */
-.btn-primary {
+.btn-instagram {
   background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(131, 58, 180, 0.4);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(131, 58, 180, 0.6);
+  color: white;
+}
+
+/* 네이버 블로그 버튼 */
+.btn-naver {
+  background: linear-gradient(135deg, #03c75a 0%, #00b347 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(3, 199, 90, 0.4);
+}
+
+.btn-naver:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(3, 199, 90, 0.6);
+  color: white;
+}
+
+/* 기본 primary 버튼 (프로젝트 카드용) */
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   padding: 15px 40px;
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 50px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(131, 58, 180, 0.4);
-  animation: fadeInUp 1s ease-out;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(131, 58, 180, 0.6);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
 }
 
 /* 프로젝트 카드 */
