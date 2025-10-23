@@ -1,7 +1,8 @@
 /* 전역 설정 */
 body {
-  min-height: 75rem;
+  min-height: 100vh;
   padding-top: 4.5rem;
+  padding-bottom: 2rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   background-attachment: fixed;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -142,10 +143,21 @@ main.container {
 /* Footer */
 footer {
   animation: fadeIn 1.2s ease-out;
+  margin-bottom: 3rem !important;
 }
 
 footer hr {
   border-top: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+footer p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+footer strong {
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
 /* 애니메이션 */
